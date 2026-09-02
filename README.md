@@ -6,7 +6,7 @@
 
 The agent operates on a continuous, interval-based loop designed to execute disciplined asset accumulation with safety checks.
 
-`text
+
 +-------------------------------------------------------+
 |                   Start Agent (main.py)               |
 +-------------------------------------------------------+
@@ -59,8 +59,6 @@ The agent operates on a continuous, interval-based loop designed to execute disc
 
 ## 🚀 Getting Started & Installation
 1. Clone the repository:
-   git clone [https://github.com/PapaeCrypto/binance-dca-agent.git](https://github.com/PapaeCrypto/binance-dca-agent.git)
-2.Adjust your setting inside
-   config.py
-3.Run the agent script:
-   python main.py
+   git clone https://github.com/PapaeCrypto/binance-dca-agent.git
+2. Adjust your setting inside :config.py
+3. Run the agent script: python main.py
