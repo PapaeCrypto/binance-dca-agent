@@ -1,26 +1,30 @@
-# Binance DCA Agent 🤖📈
+# ⚡ Binance DCA Agent Simulator
 
-> A lightweight, automated Dollar-Cost Averaging (DCA) agent built for the Binance Agent OS Mini Hackathon.
+A lightweight, interactive command-line interface (CLI) tool built in Python to simulate Dollar-Cost Averaging (DCA) strategies and analyze real-time market data directly from the Binance API.
 
-## 🔄 System Workflow
-The agent operates on a continuous, interval-based loop:
-1. Load Configuration: Reads settings (such as asset symbol, amount, and testnet flag) from config.py.
-2. Execute DCA Cycle: Runs the trade execution logic (simulates orders securely if Testnet is active, or triggers live orders via Binance API).
-3. Log & Sleep: Records the execution status and waits for the defined time interval before repeating the loop.
+---
 
+## 🚀 Key Features
 
-## ✨ Core Features
-* Automated Periodic Accumulation: Runs continuously to execute recurring buy orders according to your preset intervals.
-* Testnet/Sandbox Safety: Built-in toggle to simulate orders securely without risking real capital during testing phases.
-* Modular Clean Code: Separates execution logic (main.py) from user configurations (config.py) for easy adjustments.
+* Live Market Pricing: Fetches real-time asset prices directly from Binance public endpoints with built-in network fallback protection.
+* Customizable DCA Strategy: Input your preferred coin symbol (e.g., BTC, ETH, BNB), investment amount per interval, and frequency (Daily, Weekly, or Monthly).
+* Flexible Period Simulation: Define custom historical periods to instantly calculate total capital invested, accumulated asset amounts, current portfolio value, and overall ROI (Profit/Loss).
+* Continuous Interactive Loop: Run multiple simulations seamlessly without needing to restart the script, complete with an easy exit option.
+* Professional Terminal Interface: Clean layout optimized for screen recordings, demonstrations, and *Build in Public* showcases.
 
-## 🛠️ Project Structure
-* main.py: Core logic containing the main loop, timer, and logging mechanisms.
-* config.py: Configuration file for setting market parameters and execution flags.
-* LICENSE: MIT License governing open-source usage.
+---
 
-## 🚀 Getting Started & Installation
+## 🛠️ Tech Stack
+
+* Language: Python 3.x
+* Libraries: requests, urllib3
+* API: Binance Public Ticker API (/api/v3/ticker/price)
+
+---
+
+## 📦 Installation & Setup
+
 1. Clone the repository:
-   git clone https://github.com/PapaeCrypto/binance-dca-agent.git
-2. Adjust your setting inside :config.py
-3. Run the agent script: python main.py
+   ```bash
+   git clone https://github.com/your-username/binance-dca-agent.git
+   cd binance-dca-agent
