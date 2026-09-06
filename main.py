@@ -53,14 +53,29 @@ def run_dca_agent():
             amount_input = input(f"Enter amount per DCA session (USD) [Default 50]: ").strip()
             amount = float(amount_input) if amount_input else 50.0
             
-            intervals_input = input("Enter total DCA intervals/cycles [Default 4]: ").strip()
-            intervals = int(intervals_input) if intervals_input else 4
-        except ValueError:
-            print("⚠️ Invalid numeric input. Using default values ($50, 4 intervals).")
-            amount = 50.0
-            intervals = 4
+            print("Select DCA Interval:")
+            print("  1. Daily")
+            print("  2. Weekly")
+            print("  3. Monthly")
+            interval_choice = input("Enter choice (1/2/3) [Default 2 - Weekly]: ").strip()
             
-        print(f"\n[+] Selected Asset: {symbol} | Amount: ${amount} | Cycles: {intervals}")
+            if interval_choice == '1':
+                interval_str = "Daily"
+            elif interval_choice == '3':
+                interval_str = "Monthly"
+            else:
+                interval_str = "Weekly"
+                
+            duration_input = input(f"Enter duration / total {interval_str.lower()} intervals [Default 4]: ").strip()
+            duration_cycles = int(duration_input) if duration_input else 4
+            
+        except ValueError:
+            print("⚠️ Invalid numeric/choice input. Using default values ($50, Weekly, 4 intervals).")
+            amount = 50.0
+            interval_str = "Weekly"
+            duration_cycles = 4
+            
+        print(f"\n[+] Asset: {symbol} | Amount: ${amount} | Interval: {interval_str} | Duration: {duration_cycles} cycles")
         print("[+] Connecting to Binance Market Data Streams...\n")
         time.sleep(1)
 
@@ -73,16 +88,16 @@ def run_dca_agent():
             print(f"💰 Current Live Price : ${current_price:,.2f}")
             time.sleep(1)
             
-            # Simulasi perhitungan DCA bertahap
-            total_invested = amount * intervals
-            # Simulasi harga historis rata-rata sedikit di bawah/atas harga saat ini
-            avg_entry_price = current_price * 0.985
+            # Simulasi perhitungan DCA
+            total_invested = amount * duration_cycles
+            avg_entry_price = current_price * 0.985  # Simulasi rata-rata harga masuk
             estimated_coins = total_invested / avg_entry_price
             current_portfolio_value = estimated_coins * current_price
             roi_percentage = ((current_portfolio_value - total_invested) / total_invested) * 100
             
+            print(f"⏱️ Strategy Frequency : Every {interval_str} ({duration_cycles} total executions)")
             print(f"📈 Simulated Avg Entry : ${avg_entry_price:,.2f}")
-            print(f"💵 Total Capital Invested : ${total_invested:,.2f} ({intervals} cycles)")
+            print(f"💵 Total Capital Invested : ${total_invested:,.2f}")
             print(f"🪙 Estimated Accumulation : {estimated_coins:,.4f} {display_symbol}")
             print(f"💼 Projected Portfolio Value: ${current_portfolio_value:,.2f}")
             print(f"🚀 Estimated ROI (Sim)    : +{roi_percentage:.2f}%")
