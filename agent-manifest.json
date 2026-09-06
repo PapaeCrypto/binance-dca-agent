@@ -1,0 +1,13 @@
+{
+  "name": "binance-dca-agent",
+  "version": "1.0.0",
+  "description": "Autonomous DCA (Dollar Cost Averaging) strategy simulation and execution agent for Binance Agent OS.",
+  "track": "Track A",
+  "entrypoint": "main.py",
+  "capabilities": [
+    "Live market price fetching",
+    "DCA simulation calculation",
+    "Interactive terminal workflow",
+    "Risk management & portfolio projection"
+  ]
+}
