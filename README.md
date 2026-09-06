@@ -1,80 +1,45 @@
-# ⚡ Binance DCA Simulator
+# 🤖 Binance DCA Agent ( Dollar Cost Averaging)
 
-A lightweight, interactive command-line interface (CLI) tool built in Python to simulate Dollar-Cost Averaging (DCA) strategies and analyze real-time market data directly from the Binance API.
-
----
-
-## 🚀 Key Features
-
-* Live Market Pricing: Fetches real-time asset prices directly from Binance public endpoints with built-in network fallback protection.
-* Customizable DCA Strategy: Input your preferred coin symbol (e.g., BTC, ETH, BNB), investment amount per interval, and frequency (Daily, Weekly, or Monthly).
-* Flexible Period Simulation: Define custom historical periods to instantly calculate total capital invested, accumulated asset amounts, current portfolio value, and overall ROI (Profit/Loss).
-* Continuous Interactive Loop: Run multiple simulations seamlessly without needing to restart the script, complete with an easy exit option.
-* Professional Terminal Interface: Clean layout optimized for screen recordings, demonstrations, and *Build in Public* showcases.
+An autonomous AI investment and DCA (Dollar Cost Averaging) simulation agent built for the Binance Agent OS ecosystem. This repository provides a robust, interactive workflow to simulate and project automated asset accumulation strategies using real-time market data.
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Key Features
 
-* Language: Python 3.x
-* Libraries: requests, urllib3
-* API: Binance Public Ticker API (/api/v3/ticker/price)
+* Live Market Data Integration: Fetches real-time cryptocurrency ticker prices directly from Binance Public APIs with an automatic fallback mechanism (binance.vision) for high availability.
+* Interactive DCA Configuration: Allows users to dynamically input custom coin symbols, DCA amount per session, and total frequency cycles.
+* Smart Portfolio Projection: Automatically calculates simulated average entry prices, total invested capital, estimated coin accumulation, and projected ROI percentages.
+* Continuous Monitoring Loop: Features an active session loop so the agent stays online, allowing multi-session simulations and a clean exit command (exit).
+* Agent OS Compliance: Fully integrated with standard agent manifests (agent-manifest.json) tailored for Track A submission.
 
 ---
 
-## 📦 Installation & Setup
+## 📂 Repository Structure
 
-1. Clone the repository:
+```text
+binance-dca-agent/
+├── agent-manifest.json    # Agent OS registration and metadata
+├── main.py                # Core agent logic, DCA simulation math, and live API fetcher
+└── README.md              # Project documentation
+```
+## 🚀 Quick Start Guide
+
+### Prerequisites
+* Python 3.x installed on your system.
+* No external libraries required (uses Python standard libraries: urllib, json, time, sys).
+
+### Running the Agent
+1. Clone the repository or download the source code.
    ```bash
    git clone https://github.com/PapaeCrypto/binance-dca-agent.git
-   cd binance-dca-agent
    ```
-2. Install dependencies: makesure you have requests librry installed
-   ```bash
-   pip install requests
-   ```
-3. Run the agent
+3. Open your terminal in the project directory.
+4. Run the main agent script:
    ```bash
    python main.py
    ```
-
-## Usage Example
-
-==================================================
-                          
-   BINANCE DCA (DOLLAR-COST AVERAGING) SIMULATOR 
-      
-==================================================
-
-Enter coin to DCA (e.g., BTC, ETH, BNB): bnb
-Enter investment amount per interval (USDT): 10
-
-Select DCA Interval:
-1. Daily
-2. Weekly
-3. Monthly
-Choose interval (1/2/3): 2
-
-Enter how many weekly periods to simulate (e.g., 12, 24, 52): 12
-
-[INFO] Fetching live market data from Binance for BNBUSDT...
-
---------------------------------------------------
-📊 DCA SIMULATION RESULT: BNBUSDT
---------------------------------------------------
-• Market Price Used  : $605.50 USDT
-
-• Strategy Interval  : Weekly
-
-• Total Periods      : 12 weeks
-
-• Total Capital In   : $120.00 USDT
-
-• Total Asset Got    : 0.2155 BNB
-
-• Current Portfolio  : $130.49 USDT
-
-• Profit / Loss      : +$10.49 USDT (+8.74%)
-==================================================
-[SUCCESS] DCA simulation completed successfully!
+5. Enter your desired coin symbol (e.g., btc, eth), enter the DCA amount per session, and specify the number of intervals.
+6. Type exit whenever you want to safely terminate the agent session.
    
+## 🛡️ License
+This project is developed for the Binance Agent OS Hackathon .
